@@ -65,6 +65,7 @@ export default function Homepage() {
   return (
     <div className="home">
       <h1>This is the moua2025 page</h1>
+      <h1>This is a deployment test</h1>
       <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} />
     </div>
