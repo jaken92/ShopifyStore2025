@@ -59,6 +59,11 @@ function loadDeferredData({context}) {
   };
 }
 
+// const StyledHomepage = Styled.div`
+
+//   background: blue;
+// `
+
 export default function Homepage() {
   /** @type {LoaderReturnData} */
   const data = useLoaderData();
