@@ -1,13 +1,15 @@
-import {Await, useLoaderData, Link} from 'react-router';
-import {Suspense} from 'react';
-import {Image} from '@shopify/hydrogen';
-import {ProductItem} from '~/components/ProductItem';
+import { Await, useLoaderData, Link } from 'react-router';
+import { Suspense } from 'react';
+import { Image } from '@shopify/hydrogen';
+import { ProductItem } from '~/components/ProductItem';
+import styles from "../styles/homepage.module.css"
+
 
 /**
  * @type {Route.MetaFunction}
  */
 export const meta = () => {
-  return [{title: 'Hydrogen | Home'}];
+  return [{ title: 'Hydrogen | Home' }];
 };
 
 /**
@@ -20,7 +22,7 @@ export async function loader(args) {
   // Await the critical data required to render initial state of the page
   const criticalData = await loadCriticalData(args);
 
-  return {...deferredData, ...criticalData};
+  return { ...deferredData, ...criticalData };
 }
 
 /**
@@ -28,8 +30,8 @@ export async function loader(args) {
  * needed to render the page. If it's unavailable, the whole page should 400 or 500 error.
  * @param {Route.LoaderArgs}
  */
-async function loadCriticalData({context}) {
-  const [{collections}] = await Promise.all([
+async function loadCriticalData({ context }) {
+  const [{ collections }] = await Promise.all([
     context.storefront.query(FEATURED_COLLECTION_QUERY),
     // Add other queries here, so that they are loaded in parallel
   ]);
@@ -45,7 +47,7 @@ async function loadCriticalData({context}) {
  * Make sure to not throw any errors here, as it will cause the page to 500.
  * @param {Route.LoaderArgs}
  */
-function loadDeferredData({context}) {
+function loadDeferredData({ context }) {
   const recommendedProducts = context.storefront
     .query(RECOMMENDED_PRODUCTS_QUERY)
     .catch((error) => {
@@ -59,20 +61,36 @@ function loadDeferredData({context}) {
   };
 }
 
-// const StyledHomepage = Styled.div`
-
-//   background: blue;
-// `
 
 export default function Homepage() {
   /** @type {LoaderReturnData} */
   const data = useLoaderData();
   return (
-    <div className="home">
+    <div className={styles.home}>
+      <img
+        className={styles.logo}
+        src="../images/ColorLogo.png"
+        alt="moua-logo"
+      ></img>
+      <div className={styles.imageWrapper}>
+        <img
+          className={styles.flowerHero}
+          src="../images/flowerHero.jpg"
+          alt="wedding couple"
+        ></img>
+        <div className={styles.overlayText}>
+          <h1>Floral Design</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi animi quisquam tenetur tempora aut eius quis velit pariatur fugit possimus nostrum deserunt molestiae at modi, aliquid rem? Ab, labore dolore.
+            Exercitationem reprehenderit id soluta nisi possimus quidem, molestias totam quaerat? Eius deleniti temporibus saepe dolores quos cumque praesentium alias accusantium similique adipisci, architecto repellat. Dignissimos voluptatum aliquam in qui quis.
+            Cupiditate nostrum saepe soluta id rerum tempore alias deleniti magnam blanditiis corporis repudiandae necessitatibus quam quis ex molestiae neque, a commodi magni asperiores eveniet dolorem iste fugiat facilis delectus! Debitis.
+            Error dolore tempora sequi fuga blanditiis vel doloremque molestias deleniti quis ab? Doloremque dignissimos optio, corporis numquam delectus beatae perferendis facilis? Ducimus molestias animi placeat at aliquam recusandae repellat autem.
+            Corrupti vero blanditiis nemo? Nobis molestias expedita iste harum magni aliquid ab corporis nulla eaque neque? Dolore, voluptas sapiente cupiditate aliquam veniam atque dignissimos! Expedita dignissimos magnam sit obcaecati aspernatur.</p>
+        </div>
+      </div>
       <h1>This is the page</h1>
       <h1>This is a deployment test 2</h1>
-      <FeaturedCollection collection={data.featuredCollection} />
-      <RecommendedProducts products={data.recommendedProducts} />
+      {/* <FeaturedCollection collection={data.featuredCollection} />
+      <RecommendedProducts products={data.recommendedProducts} /> */}
     </div>
   );
 }
@@ -82,7 +100,7 @@ export default function Homepage() {
  *   collection: FeaturedCollectionFragment;
  * }}
  */
-function FeaturedCollection({collection}) {
+function FeaturedCollection({ collection }) {
   if (!collection) return null;
   const image = collection?.image;
   return (
@@ -105,7 +123,7 @@ function FeaturedCollection({collection}) {
  *   products: Promise<RecommendedProductsQuery | null>;
  * }}
  */
-function RecommendedProducts({products}) {
+function RecommendedProducts({ products }) {
   return (
     <div className="recommended-products">
       <h2>Recommended Products</h2>
@@ -115,8 +133,8 @@ function RecommendedProducts({products}) {
             <div className="recommended-products-grid">
               {response
                 ? response.products.nodes.map((product) => (
-                    <ProductItem key={product.id} product={product} />
-                  ))
+                  <ProductItem key={product.id} product={product} />
+                ))
                 : null}
             </div>
           )}
