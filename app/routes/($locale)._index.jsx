@@ -80,15 +80,27 @@ export default function Homepage() {
         ></img>
         <div className={styles.overlayText}>
           <h1>Floral Design</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi animi quisquam tenetur tempora aut eius quis velit pariatur fugit possimus nostrum deserunt molestiae at modi, aliquid rem? Ab, labore dolore.
-            Exercitationem reprehenderit id soluta nisi possimus quidem, molestias totam quaerat? Eius deleniti temporibus saepe dolores quos cumque praesentium alias accusantium similique adipisci, architecto repellat. Dignissimos voluptatum aliquam in qui quis.
-            Cupiditate nostrum saepe soluta id rerum tempore alias deleniti magnam blanditiis corporis repudiandae necessitatibus quam quis ex molestiae neque, a commodi magni asperiores eveniet dolorem iste fugiat facilis delectus! Debitis.
-            Error dolore tempora sequi fuga blanditiis vel doloremque molestias deleniti quis ab? Doloremque dignissimos optio, corporis numquam delectus beatae perferendis facilis? Ducimus molestias animi placeat at aliquam recusandae repellat autem.
-            Corrupti vero blanditiis nemo? Nobis molestias expedita iste harum magni aliquid ab corporis nulla eaque neque? Dolore, voluptas sapiente cupiditate aliquam veniam atque dignissimos! Expedita dignissimos magnam sit obcaecati aspernatur.</p>
+          <h2>Based in Göteborg, Sweden</h2>
+          <div className={styles.paragraphContainer}>
+
+            <p>In moua we create unique, elegant & natural style arrangements, full of textures, colors & curves for any occasion through which anyone can vibrate, help & reconnect with nature & its beauty by merging our two passions; the flowers & the ocean.</p>
+          </div>
+
+          <div className={styles.buttonContainer}>
+            <Link className={styles.inquiryButton} to="/pages/contact">
+              Order Flowers
+            </Link>
+            <Link className={styles.inquiryButton} to="/pages/contact">
+              Weddings
+            </Link>
+
+          </div>
+
+
+
+
         </div>
       </div>
-      <h1>This is the page</h1>
-      <h1>This is a deployment test 2</h1>
       {/* <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} /> */}
     </div>
