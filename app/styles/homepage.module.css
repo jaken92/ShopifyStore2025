@@ -86,10 +86,35 @@
     width: 240px;
     font-family: "Cormorant";
     font-style: italic;
-    color: transparent;
+    color: gray;
     font-size: 24px;
     border: 1px solid white;
     padding: 5px 5px;
     margin-top: 40px;
-    background-color: white;
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    transition: 0.25s;
+}
+
+.inquiryButton::after {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    background: white;
+    z-index: -1;
+    transition: 0.3s ease-in;
+}
+
+.inquiryButton:hover::after {
+    width: 0%;
+
+}
+
+.inquiryButton:hover {
+    color: white;
+
 }
