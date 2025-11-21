@@ -1,0 +1,68 @@
+.AnimatedButton {
+  text-decoration: none;
+  width: 240px;
+  font-family: 'Cormorant';
+  font-style: italic;
+  /* color: #363636; */
+  font-size: 18px;
+  /* border: 1px solid white; */
+  border-radius: 2px;
+  padding: 10px 5px;
+  margin-top: 40px;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  overflow: hidden;
+  transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.AnimatedButton:hover {
+  color: white;
+  transition: color 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.spanOne {
+  position: absolute;
+  width: 250px;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  background: white;
+  z-index: -1;
+}
+
+.animateButton {
+  animation: moveRight 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+}
+
+.animateUnhover {
+  animation: fillFromLeft 0.45s cubic-bezier(0.785, 0.135, 0.15, 0.86) forwards;
+}
+
+.teleportLeft {
+  right: auto;
+  left: 0;
+}
+
+@keyframes moveRight {
+  0% {
+    width: 100%;
+    right: 0;
+  }
+
+  100% {
+    width: 0%;
+    right: 0;
+  }
+}
+
+@keyframes fillFromLeft {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  100% {
+    width: 100%;
+    left: 0;
+  }
+}
