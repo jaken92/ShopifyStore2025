@@ -1,63 +1,33 @@
-/* @font-face {
-  font-family: "Cormorant";
-  src: url("/fonts/CormorantGaramond-LightItalic.woff2") format("woff2 supports variations"),
-    url("/fonts/CormorantGaramond-LightItalic.woff") format("woff2-variations");
-  font-weight: 100 1000;
-  font-style: italic;
-  font-display: swap;
-}
-
 @font-face {
-  font-family: "Cormorant";
-  src: url("/fonts/CormorantGaramond-Light.woff2") format("woff2 supports variations"),
-    url("/fonts/CormorantGaramond-Light.woff") format("woff2-variations");
-  font-weight: 100 1000;
-  font-display: swap;
-} */
-
-/* @font-face {
-  font-family: "Cormorant";
-  src: url("/fonts/CormorantGaramond-LightItalic.woff2") format("woff2 supports variations"),
-    url("/fonts/CormorantGaramond-LightItalic.woff") format("woff2-variations");
-  font-weight: 100 1000;
-  font-style: italic;
-  font-display: swap;
-} */
-
-@font-face {
-  font-family: "Cormorant";
+  font-family: 'Cormorant';
   font-weight: 400;
-  src: url("/fonts/CormorantGaramond-Regular.woff2") format("woff2");
+  src: url('/fonts/CormorantGaramond-Regular.woff2') format('woff2');
 }
 
-
 @font-face {
-  font-family: "Cormorant";
+  font-family: 'Cormorant';
   font-weight: 600;
-  src: url("/fonts/CormorantGaramond-SemiBold.woff2") format("woff2");
+  src: url('/fonts/CormorantGaramond-SemiBold.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "Cormorant";
+  font-family: 'Cormorant';
   font-weight: 800;
-  src: url("/fonts/CormorantGaramond-Bold.woff2") format("woff2");
+  src: url('/fonts/CormorantGaramond-Bold.woff2') format('woff2');
 }
 
-
 @font-face {
-  font-family: "Cormorant";
+  font-family: 'Cormorant';
   font-weight: 200;
-  src: url("/fonts/CormorantGaramond-Light.woff2") format("woff2");
+  src: url('/fonts/CormorantGaramond-Light.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: "Cormorant";
+  font-family: 'Cormorant';
   font-style: italic;
   font-weight: 400;
-  src: url("/fonts/CormorantGaramond-Italic.woff2") format("woff2");
+  src: url('/fonts/CormorantGaramond-Italic.woff2') format('woff2');
 }
-
-
 
 :root {
   --aside-width: 400px;
@@ -67,8 +37,9 @@
   --header-height: 64px;
   --color-dark: #000;
   --color-light: #fff;
+  --offBlack: #3f4140;
+  --offPink: pink;
 }
-
 
 img {
   border-radius: 4px;
@@ -206,7 +177,7 @@ button.reset {
   font-size: inherit;
 }
 
-button.reset>* {
+button.reset > * {
   margin: 0;
 }
 
@@ -233,7 +204,7 @@ button.reset:hover:not(:has(> *)) {
   padding: 0 1rem;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 100;
 }
 
 .header-menu-mobile-toggle {
@@ -270,7 +241,7 @@ button.reset:hover:not(:has(> *)) {
   margin-left: auto;
 }
 
-.header-ctas>* {
+.header-ctas > * {
   min-width: fit-content;
 }
 

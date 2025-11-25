@@ -72,7 +72,7 @@ export default function Homepage() {
         src="../images/ColorLogo.png"
         alt="moua-logo"
       ></img>
-      <div className={styles.imageWrapper}>
+      <section className={styles.imageWrapper}>
         <img
           className={styles.flowerHero}
           src="../images/flowerHero.jpg"
@@ -91,17 +91,6 @@ export default function Homepage() {
           </div>
 
           <div className={styles.buttonContainer}>
-            {/* <Link
-              onMouseEnter={() => setActive(true)}
-              onMouseLeave={() => setActive(false)}
-              className={styles.inquiryButton}
-              to="/pages/contact"
-            >
-              <span
-                className={active ? styles.inquiryButtonSpan : styles.unhovered}
-              ></span>
-              Order Flowers
-            </Link> */}
             <AnimatedButton
               bgColor={'white'}
               textColor={'#363636'}
@@ -119,7 +108,29 @@ export default function Homepage() {
             </AnimatedButton>
           </div>
         </div>
-      </div>
+      </section>
+      <section className={styles.introSection}>
+        <h3>
+          MODERN FLORAL <span>ART</span> WITH A MEXICAN SOUL
+        </h3>
+        <p>
+          Hey! My name is Ana im proudly Mexican and im the creator of Moua
+          flowers. <br></br>Flowers fill my soul & I passionatly design
+          arrangment hoping to make you feel a sense of elegance, beauty and
+          simplicity through flowers, while encourage & inspire you to help
+          nature in the way we can.
+        </p>
+        <div className={styles.keywordsContainer}>
+          <p>
+            <span>Organic</span>
+
+            <span>Natural</span>
+
+            <span>Feel</span>
+          </p>
+        </div>
+      </section>
+      <section className={styles.dummySection}></section>
       {/* <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} /> */}
     </div>
