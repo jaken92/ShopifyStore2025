@@ -2,7 +2,13 @@ import styles from './AnimatedButton.module.css';
 import {Link} from 'react-router';
 import {useState} from 'react';
 
-export const AnimatedButton = ({children, to, bgColor, textColor}) => {
+export const AnimatedButton = ({
+  children,
+  to,
+  bgColor,
+  textColor,
+  as: Component = Link,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isUnhovered, setIsUnhovered] = useState(false);
 
@@ -17,7 +23,7 @@ export const AnimatedButton = ({children, to, bgColor, textColor}) => {
   };
 
   return (
-    <Link
+    <Component
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={styles.AnimatedButton}
@@ -39,6 +45,6 @@ export const AnimatedButton = ({children, to, bgColor, textColor}) => {
       ></span>
 
       {children}
-    </Link>
+    </Component>
   );
 };

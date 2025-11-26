@@ -6,9 +6,9 @@
   /* color: #363636; */
   font-size: 18px;
   /* border: 1px solid white; */
+  text-align: center;
   border-radius: 2px;
   padding: 10px 5px;
-  margin-top: 40px;
   position: relative;
   z-index: 2;
   background: transparent;

@@ -75,7 +75,7 @@ export default function Homepage() {
       <section className={styles.imageWrapper}>
         <img
           className={styles.flowerHero}
-          src="../images/flowerHero.jpg"
+          src="../images/WeddingCouple.png"
           alt="wedding couple"
         ></img>
         <div className={styles.overlayText}>
@@ -128,6 +128,66 @@ export default function Homepage() {
 
             <span>Feel</span>
           </p>
+        </div>
+      </section>
+      <section className={styles.imageSection}>
+        <div className={styles.imagesContainer}>
+          <img
+            className={styles.imageOne}
+            src="../images/collections.jpeg"
+            alt="flower arrangement 1"
+          ></img>
+          <img
+            className={styles.imageTwo}
+            src="../images/BridalBouquet.jpg"
+            alt="flower arrangement 2"
+          ></img>
+          <img
+            className={styles.imageThree}
+            src="../images/example.webp"
+            alt="flower arrangement 3"
+          ></img>
+        </div>
+      </section>
+      <section className={styles.servicesSection}>
+        <div className={styles.headerLayout}>
+          <h2 className={styles.title}>Services</h2>
+          <div className={styles.line}></div>
+        </div>
+        <div className={styles.servicesLinksLayout}>
+          <div className={styles.serviceLinkContainer}>
+            <img
+              className={styles.serviceImage}
+              src="../images/collections.jpeg"
+              alt="flower arrangement 1"
+            ></img>
+          </div>
+          <div className={styles.serviceLinkContainer}>
+            <img
+              className={styles.serviceImage}
+              src="../images/collections.jpeg"
+              alt="flower arrangement 1"
+            ></img>
+          </div>
+          <div className={styles.serviceLinkContainer}>
+            <Link className={styles.imgWrappingLink} to="/pages/contact">
+              <img
+                className={styles.serviceImage}
+                src="../images/collections.jpeg"
+                alt="flower arrangement 1"
+              ></img>
+              <div className={styles.serviceBtnContainer}>
+                <AnimatedButton
+                  as="div"
+                  bgColor={'white'}
+                  textColor={'#363636'}
+                  to="/pages/contact"
+                >
+                  ORDER FLOWERS
+                </AnimatedButton>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
       <section className={styles.dummySection}></section>
