@@ -151,42 +151,99 @@ export default function Homepage() {
       </section>
       <section className={styles.servicesSection}>
         <div className={styles.headerLayout}>
-          <h2 className={styles.title}>Services</h2>
-          <div className={styles.line}></div>
+          <div className={styles.headerContent}>
+            <h2 className={styles.title}>Services</h2>
+            <div className={styles.line}></div>
+          </div>
         </div>
-        <div className={styles.servicesLinksLayout}>
-          <div className={styles.serviceLinkContainer}>
-            <img
-              className={styles.serviceImage}
-              src="../images/collections.jpeg"
-              alt="flower arrangement 1"
-            ></img>
+        <div className={styles.serviceCardsLayout}>
+          <div className={styles.serviceCardWithTxt}>
+            <div className={styles.serviceLinkContainer}>
+              <Link className={styles.imgWrappingLink} to="/pages/contact">
+                <img
+                  className={styles.serviceImage}
+                  src="../images/collections.jpeg"
+                  alt="flower arrangement 1"
+                ></img>
+                <div className={styles.serviceBtnContainer}>
+                  <AnimatedButton
+                    as="div"
+                    bgColor={'white'}
+                    textColor={'#363636'}
+                    to="/pages/contact"
+                  >
+                    ORDER FLOWERS
+                  </AnimatedButton>
+                </div>
+              </Link>
+            </div>
+            <div className={styles.serviceTextContainer}>
+              <span></span>
+              <p>
+                Find a unique piece for that special someone, we offer premium
+                floral arrangements available for pickup or delivery.
+              </p>
+              <span></span>
+            </div>
           </div>
-          <div className={styles.serviceLinkContainer}>
-            <img
-              className={styles.serviceImage}
-              src="../images/collections.jpeg"
-              alt="flower arrangement 1"
-            ></img>
+          <div className={styles.serviceCardWithTxt}>
+            <div className={styles.serviceLinkContainer}>
+              <Link className={styles.imgWrappingLink} to="/pages/contact">
+                <img
+                  className={styles.serviceImage}
+                  src="../images/collections.jpeg"
+                  alt="flower arrangement 1"
+                ></img>
+                <div className={styles.serviceBtnContainer}>
+                  <AnimatedButton
+                    as="div"
+                    bgColor={'white'}
+                    textColor={'#363636'}
+                    to="/pages/contact"
+                  >
+                    ORDER FLOWERS
+                  </AnimatedButton>
+                </div>
+              </Link>
+            </div>
+            <div className={styles.serviceTextContainer}>
+              <span></span>
+              <p>
+                Have an upcoming wedding or special event? We’re so excited to
+                hear about it! To receive a custom quote and a complimentary
+                floral mood board, please get in contact.
+              </p>
+              <span></span>
+            </div>
           </div>
-          <div className={styles.serviceLinkContainer}>
-            <Link className={styles.imgWrappingLink} to="/pages/contact">
-              <img
-                className={styles.serviceImage}
-                src="../images/collections.jpeg"
-                alt="flower arrangement 1"
-              ></img>
-              <div className={styles.serviceBtnContainer}>
-                <AnimatedButton
-                  as="div"
-                  bgColor={'white'}
-                  textColor={'#363636'}
-                  to="/pages/contact"
-                >
-                  ORDER FLOWERS
-                </AnimatedButton>
-              </div>
-            </Link>
+          <div className={styles.serviceCardWithTxt}>
+            <div className={styles.serviceLinkContainer}>
+              <Link className={styles.imgWrappingLink} to="/pages/contact">
+                <img
+                  className={styles.serviceImage}
+                  src="../images/collections.jpeg"
+                  alt="flower arrangement 1"
+                ></img>
+                <div className={styles.serviceBtnContainer}>
+                  <AnimatedButton
+                    as="div"
+                    bgColor={'white'}
+                    textColor={'#363636'}
+                    to="/pages/contact"
+                  >
+                    ORDER FLOWERS
+                  </AnimatedButton>
+                </div>
+              </Link>
+            </div>
+            <div className={styles.serviceTextContainer}>
+              <span></span>
+              <p>
+                Brighten up your space with a beautiful arrangement delivered to
+                your home or business on a weekly or biweekly basis.
+              </p>
+              <span></span>
+            </div>
           </div>
         </div>
       </section>
