@@ -287,7 +287,30 @@
   display: block;
 }
 
+/* Parallax Content */
+
+.parallaxSection {
+  margin-top: 120px;
+}
+
+.parallaxContent {
+  position: absolute;
+  top: 10%;
+  left: 50px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.parallaxContent h3 {
+  font-family: 'Cormorant';
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
 .dummySection {
-  height: 200px;
+  height: 1000px;
   background-color: white;
 }

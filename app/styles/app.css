@@ -34,7 +34,7 @@
   --cart-aside-summary-height-with-discount: 300px;
   --cart-aside-summary-height: 250px;
   --grid-item-width: 355px;
-  --header-height: 64px;
+  --header-height: 30px;
   --color-dark: #000;
   --color-light: #fff;
   --offBlack: #3f4140;
@@ -194,7 +194,8 @@ button.reset:hover:not(:has(> *)) {
 */
 .header {
   align-items: center;
-  background: #fff;
+  background: #edd0ce;
+  /* background: #dccdc0; */
   display: flex;
   height: var(--header-height);
   padding: 0 1rem;

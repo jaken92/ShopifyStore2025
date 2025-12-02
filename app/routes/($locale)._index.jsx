@@ -5,6 +5,7 @@ import {ProductItem} from '~/components/ProductItem';
 import styles from '../styles/homepage.module.css';
 // import {AnimatedButton} from '~/components/AnimatedButton';
 import {AnimatedButton} from '~/components/AnimatedButton/AnimatedButton';
+import {ParallaxSection} from '~/components/ParallaxSection/ParallaxSection';
 
 /**
  * @type {Route.MetaFunction}
@@ -247,6 +248,22 @@ export default function Homepage() {
           </div>
         </div>
       </section>
+
+      <section className={styles.parallaxSection}>
+        <ParallaxSection image="/images/WeddingCouple.png">
+          <div className={styles.parallaxContent}>
+            <h3>LUSH GARDEN STYLE WITH A MODERN EDGE</h3>
+            <AnimatedButton
+              bgColor={'#edd0ce'}
+              textColor={'white'}
+              to="/pages/contact"
+            >
+              RECSOURCES
+            </AnimatedButton>
+          </div>
+        </ParallaxSection>
+      </section>
+
       <section className={styles.dummySection}></section>
       {/* <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} /> */}
