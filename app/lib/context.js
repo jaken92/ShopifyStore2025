@@ -2,8 +2,7 @@ import {createHydrogenContext} from '@shopify/hydrogen';
 import {AppSession} from '~/lib/session';
 import {CART_QUERY_FRAGMENT} from '~/lib/fragments';
 import {getLocaleFromRequest} from '~/lib/i18n';
-import {createFeaturableReviewsClient} from './app/lib/createFeaturableReviewsClient.server';
-// import {createFeaturableReviewsClient} from './createFeaturableReviewsClient.server';
+import {createFeaturableReviewsClient} from '~/lib/createFeaturableReviewsClient.server';
 
 // Define the additional context object
 // const additionalContext = {
