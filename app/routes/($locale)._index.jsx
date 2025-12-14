@@ -68,18 +68,24 @@ export default function Homepage() {
   const data = useLoaderData();
   return (
     <div className={styles.home}>
-      <img
+      {/* <img
         className={styles.logo}
         src="../images/ColorLogo.png"
         alt="moua-logo"
-      ></img>
+      ></img> */}
       <section className={styles.imageWrapper}>
         <img
           className={styles.flowerHero}
-          src="../images/WeddingCouple.png"
+          src="/images/WeddingCouple.png"
           alt="wedding couple"
         ></img>
         <div className={styles.overlayText}>
+          <img
+            className={styles.logo}
+            src="/symbols/WhiteLogoNoBackgroundResized.png"
+            alt="moua-logo"
+          ></img>
+
           <h1>Floral Design</h1>
           <h2>Based in Göteborg, Sweden</h2>
           <div className={styles.paragraphContainer}>
@@ -93,7 +99,7 @@ export default function Homepage() {
 
           <div className={styles.buttonContainer}>
             <AnimatedButton
-              bgColor={'white'}
+              bgColor={'hsl(42, 31%, 99%)'}
               textColor={'#363636'}
               to="/pages/contact"
             >
@@ -101,7 +107,7 @@ export default function Homepage() {
             </AnimatedButton>
 
             <AnimatedButton
-              bgColor={'white'}
+              bgColor={'hsl(42, 31%, 99%)'}
               textColor={'#363636'}
               to="/pages/contact"
             >

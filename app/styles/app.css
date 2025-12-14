@@ -39,6 +39,20 @@
   --color-light: #fff;
   --offBlack: #3f4140;
   --offPink: pink;
+  --offWhite: hsl(42, 31%, 99%);
+  background: var(--offWhite);
+  /* background: #e3d7ce; */
+}
+
+/* html {
+  overflow: hidden;
+  height: 100%;
+} */
+
+body {
+  /* overflow: auto;
+  height: 100%; */
+  background: var(--offWhite);
 }
 
 /*
@@ -194,7 +208,8 @@ button.reset:hover:not(:has(> *)) {
 */
 .header {
   align-items: center;
-  background: #edd0ce;
+  /* background: #edd0ce; */
+  background: #e3d7ce;
   /* background: #dccdc0; */
   display: flex;
   /* justify-content: center; */

@@ -7,16 +7,17 @@
 /* Hero Section */
 
 .logo {
-  width: 165px;
-  height: 165px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto;
-  padding: 15px 0 45px 0;
+  padding-top: 40px;
 }
 
 .imageWrapper {
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - var(--header-height));
   position: relative;
+  overflow: hidden;
 }
 
 .flowerHero {
@@ -24,8 +25,17 @@
   width: 100%;
   object-fit: cover;
   display: block;
+  animation: slowZoom 10s ease-out forwards;
 }
 
+@keyframes slowZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.15);
+  }
+}
 .overlayText {
   position: absolute;
   width: 100%;
@@ -42,8 +52,8 @@
   font-family: 'Cormorant';
   font-size: 70px;
   text-transform: uppercase;
-  color: white;
-  margin-top: 60px;
+  color: var(--offWhite);
+  /* margin-top: 60px; */
   margin-bottom: 5px;
 }
 
@@ -51,7 +61,7 @@
   font-family: 'Cormorant';
   font-size: 24px;
   text-transform: uppercase;
-  color: white;
+  color: var(--offWhite);
   margin-bottom: 40px;
 }
 
@@ -64,7 +74,7 @@
   font-family: 'Cormorant';
   font-size: 18px;
   text-transform: uppercase;
-  color: white;
+  color: var(--offWhite);
   line-height: 2;
   font-weight: 600;
 }
@@ -81,9 +91,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 60px 0px;
+  padding: 120px 0px;
   gap: 60px;
+  /* height: calc(100vh - var(--header-height)); */
+  /* height: 80vh; */
 }
 
 .introSection h3 {
@@ -94,7 +107,7 @@
   color: var(--offBlack);
   line-height: 1.4;
   letter-spacing: 5px;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
 .introSection h3 span {
@@ -159,7 +172,8 @@
 .imagesContainer {
   display: flex;
   justify-content: right;
-  padding: 20px 0px 240px 0px;
+  margin-bottom: 160px;
+
   /* gap: 5px;
   margin-right: 5px; */
 }
@@ -312,5 +326,4 @@
 
 .dummySection {
   height: 1000px;
-  background-color: white;
 }
