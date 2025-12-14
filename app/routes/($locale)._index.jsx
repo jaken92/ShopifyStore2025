@@ -7,6 +7,9 @@ import styles from '../styles/homepage.module.css';
 import {AnimatedButton} from '~/components/AnimatedButton/AnimatedButton';
 import {ParallaxSection} from '~/components/ParallaxSection/ParallaxSection';
 
+// import {json} from '@shopify/remix-oxygen';
+// import {CacheShort} from '@shopify/hydrogen';
+
 /**
  * @type {Route.MetaFunction}
  */
@@ -17,14 +20,34 @@ export const meta = () => {
 /**
  * @param {Route.LoaderArgs} args
  */
-export async function loader(args) {
-  // Start fetching non-critical data without blocking time to first byte
-  const deferredData = loadDeferredData(args);
 
-  // Await the critical data required to render initial state of the page
-  const criticalData = await loadCriticalData(args);
+// export async function loader(args) {
+//   // Start fetching non-critical data without blocking time to first byte
+//   const deferredData = loadDeferredData(args);
 
-  return {...deferredData, ...criticalData};
+//   // Await the critical data required to render initial state of the page
+//   const criticalData = await loadCriticalData(args);
+
+//   return {...deferredData, ...criticalData};
+// }
+
+// export async function loader({context}) {
+//   const {characters} = await context.rickAndMorty.query(CHARACTERS_QUERY, {
+//     cache: CacheShort(),
+//   });
+//   return {characters};
+// }
+
+export async function loader({context}) {
+  // Optional debug (remove later)
+  console.log(context.env.FEATURABLE_URL);
+
+  // Call your REST client
+  const reviewData = await context.featurableReviews.getReviews();
+
+  return {
+    reviewData,
+  };
 }
 
 /**
@@ -63,9 +86,92 @@ function loadDeferredData({context}) {
   };
 }
 
+// Render the component using data returned by the loader
+// const Reviews = () => {
+//   return (
+//     <div>
+//       <h1>Rick & Morty Characters</h1>
+//       <ul>
+//         {(characters.results || []).map((character) => (
+//           <li key={character.name}>{character.name}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };
+
 export default function Homepage() {
   /** @type {LoaderReturnData} */
-  const data = useLoaderData();
+  // const data = useLoaderData();
+  const {reviewData} = useLoaderData();
+  const reviews = reviewData?.data?.widget?.reviews ?? [];
+
+  // StarRating.jsx
+  const StarRating = ({value, max = 5, size = 20, color = '#FFD700'}) => {
+    const stars = [];
+
+    for (let i = 1; i <= max; i++) {
+      if (i <= value) {
+        // Full star
+        stars.push(
+          <svg
+            key={i}
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill={color}
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M12 .587l3.668 7.568L24 9.75l-6 5.847 1.416 8.254L12 18.896l-7.416 5.955L6 15.597 0 9.75l8.332-1.595z" />
+          </svg>,
+        );
+      } else {
+        // Empty star
+        stars.push(
+          <svg
+            key={i}
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke={color}
+            strokeWidth="2"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M12 .587l3.668 7.568L24 9.75l-6 5.847 1.416 8.254L12 18.896l-7.416 5.955L6 15.597 0 9.75l8.332-1.595z" />
+          </svg>,
+        );
+      }
+    }
+
+    return <div style={{display: 'flex', gap: 2}}>{stars}</div>;
+  };
+
+  const renderedReviews = reviews.map((review, i) => {
+    return (
+      <div key={i}>
+        <h3>{review?.author?.name}</h3>
+        <img
+          src={review?.author?.avatarUrl}
+          alt="test"
+          width={48}
+          height={48}
+          loading="lazy"
+          referrerPolicy="no-referrer"
+        />
+        <p>{review?.text}</p>
+        <StarRating value={review?.rating?.value} />
+      </div>
+    );
+  });
+
+  // const renderedInfoCards = infoCards.map((infoCard, i) => {
+  //   return (
+  //     <>
+  //       <InfoCard key={i} cardContent={infoCard} />
+  //     </>
+  //   );
+  // });
   return (
     <div className={styles.home}>
       {/* <img
@@ -270,7 +376,12 @@ export default function Homepage() {
         </ParallaxSection>
       </section>
 
-      <section className={styles.dummySection}></section>
+      <section className={styles.dummySection}>
+        {renderedReviews}
+        <Link to="https://www.google.com/maps/place/Moua+flowers+%2F+blommor+Florist+G%C3%B6teborg/@57.6686556,11.9333473,17z/data=!4m8!3m7!1s0xa28c1953c5af7ff5:0x8a4fb365bf584747!8m2!3d57.6686556!4d11.9333473!9m1!1b1!16s%2Fg%2F11pdmlvjky?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">
+          Leave a review!
+        </Link>
+      </section>
       {/* <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} /> */}
     </div>
