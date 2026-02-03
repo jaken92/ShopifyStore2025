@@ -215,7 +215,6 @@
 }
 
 .title {
-  grid-column: 1;
   text-align: center;
   font-size: 40px;
 
@@ -326,4 +325,108 @@
 
 .dummySection {
   height: 1000px;
+}
+
+/* Reviews Section */
+
+.reviewSection {
+  margin-top: 120px;
+}
+
+.reviewHeaderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 20px;
+  padding-left: 300px;
+  padding-right: 20px;
+}
+
+.reviewsTitle {
+  text-align: center;
+  font-size: 40px;
+
+  font-family: 'Cormorant';
+  text-transform: uppercase;
+  color: var(--offBlack);
+}
+
+/* .reviewsTitle span {
+  position: relative;
+}
+.reviewsTitle span:after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  bottom: -2px;
+  width: 80%;
+  height: 1px;
+  background-color: var(--offPink);
+} */
+
+.reviewLine {
+  flex-grow: 1;
+  height: 1px;
+  background: var(--offBlack);
+}
+
+.reviewCard h3 {
+  color: var(--offBlack);
+  /* margin-bottom: 10px; */
+  text-transform: capitalize;
+}
+
+.reviewCarousell {
+  margin: 100px auto;
+  width: 100%;
+  display: flex;
+  /* border: 2px solid var(--offPink); */
+  overflow-x: auto;
+}
+
+.reviewCarousell::-webkit-scrollbar {
+  display: none;
+}
+
+.reviewGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  animation: spin 100s linear infinite;
+  padding-right: 30px;
+  cursor: pointer;
+}
+
+.reviewCarousell:hover .reviewGroup {
+  animation-play-state: paused;
+}
+
+.reviewCard {
+  display: flex;
+  gap: 5px;
+  flex: 0 0 300px;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  /* height: 600px; */
+  padding: 10px;
+  border-radius: 20px;
+  /* background-color: aqua; */
+  font-family: 'Cormorant';
+  font-size: 18px;
+  text-align: center;
+  color: var(--offBlack);
+}
+
+@keyframes spin {
+  from {
+    transform: translate(0%);
+  }
+  to {
+    transform: translate(-100%);
+  }
 }

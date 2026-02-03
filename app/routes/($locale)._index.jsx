@@ -3,7 +3,6 @@ import {Suspense} from 'react';
 import {Image} from '@shopify/hydrogen';
 import {ProductItem} from '~/components/ProductItem';
 import styles from '../styles/homepage.module.css';
-// import {AnimatedButton} from '~/components/AnimatedButton';
 import {AnimatedButton} from '~/components/AnimatedButton/AnimatedButton';
 import {ParallaxSection} from '~/components/ParallaxSection/ParallaxSection';
 
@@ -107,7 +106,7 @@ export default function Homepage() {
   const reviews = reviewData?.data?.widget?.reviews ?? [];
 
   // StarRating.jsx
-  const StarRating = ({value, max = 5, size = 20, color = '#FFD700'}) => {
+  const StarRating = ({value, max = 5, size = 20, color = '#e3d7ce'}) => {
     const stars = [];
 
     for (let i = 1; i <= max; i++) {
@@ -144,21 +143,34 @@ export default function Homepage() {
       }
     }
 
-    return <div style={{display: 'flex', gap: 2}}>{stars}</div>;
+    return (
+      <div
+        className={styles.stars}
+        style={{
+          display: 'flex',
+          gap: 2,
+          justifyContent: 'center',
+          marginTop: '3px',
+        }}
+      >
+        {stars}
+      </div>
+    );
   };
 
   const renderedReviews = reviews.map((review, i) => {
+    console.log('Review:', review);
     return (
-      <div key={i}>
+      <div className={styles.reviewCard} key={i}>
         <h3>{review?.author?.name}</h3>
-        <img
+        {/* <img
           src={review?.author?.avatarUrl}
           alt="test"
           width={48}
           height={48}
           loading="lazy"
           referrerPolicy="no-referrer"
-        />
+        /> */}
         <p>{review?.text}</p>
         <StarRating value={review?.rating?.value} />
       </div>
@@ -375,9 +387,22 @@ export default function Homepage() {
           </div>
         </ParallaxSection>
       </section>
+      <section className={styles.reviewSection}>
+        <div className={styles.reviewHeaderWrapper}>
+          <h2 className={styles.reviewsTitle}>
+            What our customers say <span></span>
+          </h2>
+          <div className={styles.reviewLine}></div>
+        </div>
+        <div className={styles.reviewCarousell}>
+          <div className={styles.reviewGroup}>{renderedReviews}</div>
+          <div className={styles.reviewGroup}>{renderedReviews}</div>
+        </div>
+      </section>
 
       <section className={styles.dummySection}>
-        {renderedReviews}
+        {/* {renderedReviews} */}
+
         <Link to="https://www.google.com/maps/place/Moua+flowers+%2F+blommor+Florist+G%C3%B6teborg/@57.6686556,11.9333473,17z/data=!4m8!3m7!1s0xa28c1953c5af7ff5:0x8a4fb365bf584747!8m2!3d57.6686556!4d11.9333473!9m1!1b1!16s%2Fg%2F11pdmlvjky?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">
           Leave a review!
         </Link>
