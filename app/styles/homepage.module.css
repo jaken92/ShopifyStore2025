@@ -378,7 +378,7 @@
 }
 
 .reviewCarousell {
-  margin: 100px auto;
+  margin: 120px auto;
   width: 100%;
   display: flex;
   /* border: 2px solid var(--offPink); */
@@ -420,6 +420,36 @@
   font-size: 18px;
   text-align: center;
   color: var(--offBlack);
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 100px auto;
+}
+
+.photos img {
+  width: 100%;
+  height: 250px;
+  display: block;
+  object-fit: cover;
+}
+
+.contactInfo {
+  margin: 120px auto;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  color: var(--offBlack);
+}
+
+.contactInfo p {
+  font-family: 'Cormorant';
+  font-size: 24px;
 }
 
 @keyframes spin {

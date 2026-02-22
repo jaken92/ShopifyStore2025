@@ -398,15 +398,47 @@ export default function Homepage() {
           <div className={styles.reviewGroup}>{renderedReviews}</div>
           <div className={styles.reviewGroup}>{renderedReviews}</div>
         </div>
+        <div className={styles.photos}>
+          <img
+            className={styles.photos}
+            src="../images/example.webp"
+            alt="flower arrangement 1"
+          ></img>
+          <img
+            className={styles.photos}
+            src="../images/example.webp"
+            alt="flower arrangement 1"
+          ></img>
+          <img
+            className={styles.photos}
+            src="../images/example.webp"
+            alt="flower arrangement 1"
+          ></img>
+          <img
+            className={styles.photos}
+            src="../images/example.webp"
+            alt="flower arrangement 1"
+          ></img>
+        </div>
+        <div className={styles.contactInfo}>
+          <p>DELIVERIES ONLY WITHIN GÖTEBORG CITY</p>
+          <p>
+            *Gothenburg city (postal codes 40000–41899), Västra Frölunda & Askim
+          </p>
+          <p>
+            PICK-UP + DELIVERIES MONDAY - SATURDAY/ FREE DELIVERY IN HÖGSBO!
+          </p>
+          <p>Emal: mouaflorescc@gmail.com</p>
+          <p>
+            Home based studio: Göteborg Sweden, Kappladsgatan 132 41478
+            Göteborg.
+          </p>
+        </div>
       </section>
-
-      <section className={styles.dummySection}>
-        {/* {renderedReviews} */}
-
-        <Link to="https://www.google.com/maps/place/Moua+flowers+%2F+blommor+Florist+G%C3%B6teborg/@57.6686556,11.9333473,17z/data=!4m8!3m7!1s0xa28c1953c5af7ff5:0x8a4fb365bf584747!8m2!3d57.6686556!4d11.9333473!9m1!1b1!16s%2Fg%2F11pdmlvjky?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">
+      {/* {renderedReviews} */}
+      {/* <Link to="https://www.google.com/maps/place/Moua+flowers+%2F+blommor+Florist+G%C3%B6teborg/@57.6686556,11.9333473,17z/data=!4m8!3m7!1s0xa28c1953c5af7ff5:0x8a4fb365bf584747!8m2!3d57.6686556!4d11.9333473!9m1!1b1!16s%2Fg%2F11pdmlvjky?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D">
           Leave a review!
-        </Link>
-      </section>
+        </Link> */}
       {/* <FeaturedCollection collection={data.featuredCollection} />
       <RecommendedProducts products={data.recommendedProducts} /> */}
     </div>
