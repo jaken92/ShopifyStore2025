@@ -53,7 +53,7 @@ function FooterMenu({menu, primaryDomainUrl, publicStoreDomain}) {
             end
             key={item.id}
             prefetch="intent"
-            style={activeLinkStyle}
+            // style={activeLinkStyle}
             to={url}
           >
             {item.title}
@@ -115,7 +115,7 @@ const FALLBACK_FOOTER_MENU = {
 function activeLinkStyle({isActive, isPending}) {
   return {
     fontWeight: isActive ? 'bold' : undefined,
-    color: isPending ? 'grey' : 'white',
+    color: '#3f4140',
   };
 }
 

@@ -277,8 +277,22 @@ button.reset:hover:not(:has(> *)) {
 * --------------------------------------------------
 */
 .footer {
-  background: var(--color-dark);
+  background: var(--offWhite);
+
   margin-top: auto;
+  /* border-top: 1px solid var(--offBlack); */
+  position: relative;
+}
+
+.footer:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--offBlack);
+  height: 1px;
+  width: 80%;
 }
 
 .footer-menu {
@@ -287,11 +301,20 @@ button.reset:hover:not(:has(> *)) {
   flex-wrap: wrap;
   grid-gap: 1rem;
   padding: 1rem;
+  color: var(--offBlack);
+  font-family: 'Cormorant';
+  font-size: 18px;
+  text-align: center;
 }
 
 .footer-menu a {
-  color: var(--color-light);
+  color: var(--offBlack);
   min-width: fit-content;
+}
+
+.footer-menu a:not(:first-child) {
+  border-left: 1px solid var(--offBlack);
+  padding-left: 1rem;
 }
 
 /*
