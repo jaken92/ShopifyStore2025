@@ -13,7 +13,7 @@ import {ParallaxSection} from '~/components/ParallaxSection/ParallaxSection';
  * @type {Route.MetaFunction}
  */
 export const meta = () => {
-  return [{title: 'Hydrogen | Home'}];
+  return [{title: 'Mouaflowers | Home'}];
 };
 
 /**
