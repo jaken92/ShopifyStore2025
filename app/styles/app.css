@@ -40,6 +40,8 @@
   --offBlack: #3f4140;
   --offPink: pink;
   --offWhite: hsl(42, 31%, 99%);
+  --beige: #e3d7ce;
+  --dustyPink: #edd0ce;
   background: var(--offWhite);
   /* background: #e3d7ce; */
 }

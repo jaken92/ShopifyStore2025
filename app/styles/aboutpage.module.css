@@ -2,6 +2,8 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  /* lines that bleed past the cards must never cause horizontal scroll */
+  overflow-x: clip;
 }
 
 .aboutSection {
@@ -86,6 +88,263 @@
   object-fit: cover;
 }
 
-.dummySection {
-  height: 1000px;
+/*
+* --------------------------------------------------
+* Shared
+* --------------------------------------------------
+*/
+.sectionHeading {
+  font-family: 'Cormorant';
+  font-weight: 400;
+  font-size: clamp(28px, 2.8vw, 40px);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--offBlack);
+}
+
+.bodyText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  font-size: clamp(16px, 1.4vw, 20px);
+}
+
+.bodyText p {
+  font-family:
+    'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
+  font-weight: normal;
+  font-size: inherit;
+  line-height: 1.6;
+  letter-spacing: 0.12em;
+  color: var(--offBlack);
+}
+
+/*
+* --------------------------------------------------
+* Flower journey / story
+* --------------------------------------------------
+*/
+.journeyHeading {
+  text-align: center;
+  padding-block: clamp(80px, 15vw, 220px) clamp(60px, 12vw, 170px);
+}
+
+.storySection {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  padding-right: 20px;
+}
+
+.storyCard {
+  grid-column: 1 / 8;
+  grid-row: 1;
+  /* the photo hangs below the card */
+  margin-bottom: 9vw;
+  padding-block: 80px 60px;
+  background: url('/images/aboutImages/StoryBehindBg.png') center / cover;
+}
+
+.storyTitle {
+  margin-left: 7.5%;
+  font-family: 'Cormorant';
+  font-weight: 200;
+  font-size: clamp(30px, 2.8vw, 40px);
+  line-height: 1.2;
+  color: var(--offBlack);
+}
+
+.storyTitleLine {
+  width: 44%;
+  height: 1px;
+  margin-block: 16px 60px;
+  background: var(--offBlack);
+}
+
+.storyText {
+  margin-left: 5%;
+  /* keeps the text clear of the overlapping photo */
+  width: 62%;
+  text-align: justify;
+}
+
+.storyImg {
+  grid-column: 6 / 13;
+  grid-row: 1;
+  align-self: start;
+  margin-top: 12.5vw;
+  width: 100%;
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/*
+* --------------------------------------------------
+* Who are we / concept
+* --------------------------------------------------
+*/
+.headerContentRight {
+  width: 55%;
+  margin-left: auto;
+  margin-right: 9%;
+  margin-block: clamp(80px, 18vw, 266px) clamp(60px, 12vw, 180px);
+}
+
+.conceptSection {
+  --conceptInset: 3.75vw;
+  padding-bottom: clamp(80px, 15vw, 224px);
+}
+
+.conceptCard {
+  position: relative;
+  width: 76.8%;
+  margin-left: var(--conceptInset);
+  padding-bottom: 8vw;
+  /* matches ConceptBg.png; the card still grows if the content needs more room */
+  aspect-ratio: 2208 / 3732;
+  background:
+    url('/images/aboutImages/ConceptBg.png') top / 100% auto no-repeat,
+    url('/images/aboutImages/StoryBehindBg.png') center / cover;
+}
+
+/* reserves the photo area at the top of ConceptBg.png */
+.conceptPhoto {
+  width: 100%;
+  aspect-ratio: 2208 / 1582;
+}
+
+.conceptLine {
+  height: 1px;
+  margin-top: 7.5vw;
+  margin-left: calc(-1 * var(--conceptInset));
+  width: calc(42% + var(--conceptInset));
+  background: var(--offBlack);
+}
+
+.conceptTitle {
+  margin: 4vw 0 0 20%;
+  font-family: 'Cormorant';
+  font-weight: 400;
+  font-size: clamp(56px, 8.5vw, 128px);
+  line-height: 1;
+  font-variant-caps: small-caps;
+  color: var(--offBlack);
+}
+
+.conceptText {
+  margin: 40px 8.4% 0 21.6%;
+}
+
+.conceptButtons {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: start;
+  gap: 40px 30px;
+  margin: 60px 0 0 11%;
+}
+
+.conceptButtons > :last-child {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.conceptEndLine {
+  position: absolute;
+  bottom: 7%;
+  left: 67%;
+  width: 53%;
+  height: 1px;
+  background: var(--offBlack);
+}
+
+/*
+* --------------------------------------------------
+* Mobile
+* --------------------------------------------------
+*/
+@media (max-width: 900px) {
+  .headerContent {
+    width: 80%;
+  }
+
+  .founderWrapper > h2 {
+    font-size: 22px;
+  }
+
+  .founderWrapper > h2 > span {
+    font-size: 36px;
+  }
+
+  .storySection {
+    grid-template-columns: 1fr;
+    padding-right: 0;
+  }
+
+  .storyCard {
+    grid-column: 1;
+    margin: 0 4% 0 0;
+    padding-bottom: 80px;
+  }
+
+  .storyTitle {
+    margin-left: 6%;
+  }
+
+  .storyText {
+    width: 88%;
+    margin-left: 6%;
+  }
+
+  .storyImg {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: end;
+    width: 85%;
+    margin: -40px 4% 0 0;
+  }
+
+  .headerContentRight {
+    width: 85%;
+    margin-right: 6%;
+  }
+
+  .conceptSection {
+    --conceptInset: 4vw;
+  }
+
+  .conceptCard {
+    width: 92%;
+    padding-bottom: 100px;
+  }
+
+  .conceptLine {
+    margin-top: 40px;
+    width: calc(60% + var(--conceptInset));
+  }
+
+  .conceptTitle {
+    margin: 30px 0 0 8%;
+  }
+
+  .conceptText {
+    margin-inline: 8%;
+  }
+
+  .conceptButtons {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 20px;
+    margin-left: 8%;
+  }
+
+  .conceptButtons > :last-child {
+    justify-self: start;
+  }
+
+  .conceptEndLine {
+    bottom: 40px;
+    left: 50%;
+    width: calc(50% + var(--conceptInset));
+  }
 }
