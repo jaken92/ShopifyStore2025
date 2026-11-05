@@ -10,7 +10,12 @@ export const meta = () => {
 const content = {
   title: 'About',
   intro: {
-    lines: ['Hi im Ana Laura', 'Founder & floral designer.', 'The person', 'behind'],
+    lines: [
+      'Hi im Ana Laura',
+      'Founder & floral designer.',
+      'The person',
+      'behind',
+    ],
     company: 'Moua Flowers',
     imageAlt: 'Ana Laura, founder of Moua Flowers, holding a pink flower',
   },
@@ -65,9 +70,7 @@ export default function About() {
                 <br />
               </Fragment>
             ))}
-            <span className={styles.companyTitle}>
-              {content.intro.company}
-            </span>
+            <span className={styles.companyTitle}>{content.intro.company}</span>
           </h2>
         </div>
       </section>
@@ -89,13 +92,16 @@ export default function About() {
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
+          {/* positioned relative to the card, so it always matches its size */}
+          <div className={styles.storyImgFrame}>
+            <img
+              className={styles.storyImg}
+              src="/images/aboutImages/AnaWorking.png"
+              alt={content.story.imageAlt}
+              loading="lazy"
+            ></img>
+          </div>
         </div>
-        <img
-          className={styles.storyImg}
-          src="/images/aboutImages/AnaWorking.png"
-          alt={content.story.imageAlt}
-          loading="lazy"
-        ></img>
       </section>
 
       <div className={`${styles.headerContent} ${styles.headerContentRight}`}>

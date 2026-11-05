@@ -4,6 +4,8 @@
   flex-direction: column;
   /* lines that bleed past the cards must never cause horizontal scroll */
   overflow-x: clip;
+  /* side space that keeps the content at most 1200px wide */
+  --gutter: max(20px, calc((100vw - 1200px) / 2));
 }
 
 .aboutSection {
@@ -15,7 +17,7 @@
 
 .headerContent {
   display: flex;
-  /* justify-content: center; */
+  margin-top: 20px;
   align-items: center;
   gap: 20px;
   width: 45%;
@@ -96,7 +98,7 @@
 .sectionHeading {
   font-family: 'Cormorant';
   font-weight: 400;
-  font-size: clamp(28px, 2.8vw, 40px);
+  font-size: clamp(28px, 2.6vw, 38px);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--offBlack);
@@ -105,8 +107,8 @@
 .bodyText {
   display: flex;
   flex-direction: column;
-  gap: 1.5em;
-  font-size: clamp(16px, 1.4vw, 20px);
+  gap: 1.4em;
+  font-size: 17px;
 }
 
 .bodyText p {
@@ -115,7 +117,7 @@
   font-weight: normal;
   font-size: inherit;
   line-height: 1.6;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   color: var(--offBlack);
 }
 
@@ -126,57 +128,80 @@
 */
 .journeyHeading {
   text-align: center;
-  padding-block: clamp(80px, 15vw, 220px) clamp(60px, 12vw, 170px);
+  padding-block: clamp(64px, 9vw, 130px) clamp(40px, 5vw, 70px);
 }
 
+/*
+* Card and photo frame are always the same size, placed diagonally as in Figma.
+* The photo frame lives inside the card and is sized/positioned in % of it:
+*   left 86% -> the photo overlaps the card's right 14%
+*   top  32% -> the photo starts 32% of the way down the card
+* Card + photo together span the full content column (max 1200px).
+*/
 .storySection {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  padding-right: 20px;
+  width: calc(100% - 2 * var(--gutter));
+  margin-inline: auto;
+  /* room for the photo hanging below the card: 32% of the card height
+     (card width = 100/186 of the section, height = width / 0.686) */
+  padding-bottom: calc((100% - 2 * var(--gutter)) * 0.2508);
 }
 
 .storyCard {
-  grid-column: 1 / 8;
-  grid-row: 1;
-  /* the photo hangs below the card */
-  margin-bottom: 9vw;
-  padding-block: 80px 60px;
+  position: relative;
+  width: calc(100% * 100 / 186);
+  /* Figma proportions (padding included); grows if the text needs more room */
+  box-sizing: border-box;
+  aspect-ratio: 1602 / 2334;
+  padding-block: 28px 60px;
   background: url('/images/aboutImages/StoryBehindBg.png') center / cover;
 }
 
 .storyTitle {
-  margin-left: 7.5%;
+  margin-left: 8.5%;
   font-family: 'Cormorant';
   font-weight: 200;
-  font-size: clamp(30px, 2.8vw, 40px);
+  font-size: clamp(32px, 3.4vw, 48px);
   line-height: 1.2;
   color: var(--offBlack);
 }
 
 .storyTitleLine {
-  width: 44%;
   height: 1px;
-  margin-block: 16px 60px;
+  margin: 20px 0 28px 4%;
+  width: 79%;
   background: var(--offBlack);
 }
 
 .storyText {
-  margin-left: 5%;
+  gap: 1.75em;
+  margin-left: 7%;
   /* keeps the text clear of the overlapping photo */
-  width: 62%;
+  margin-right: 20%;
+  font-size: clamp(15px, 1.2vw, 17px);
   text-align: justify;
 }
 
-.storyImg {
-  grid-column: 6 / 13;
-  grid-row: 1;
-  align-self: start;
-  margin-top: 12.5vw;
+.storyText p {
+  line-height: 1.75;
+  letter-spacing: 0.06em;
+}
+
+.storyImgFrame {
+  position: absolute;
+  left: 86%;
+  top: 32%;
   width: 100%;
-  height: auto;
-  display: block;
-  position: relative;
+  height: 100%;
   z-index: 1;
+}
+
+.storyImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /*
@@ -185,22 +210,24 @@
 * --------------------------------------------------
 */
 .headerContentRight {
-  width: 55%;
+  width: min(55%, 700px);
   margin-left: auto;
-  margin-right: 9%;
-  margin-block: clamp(80px, 18vw, 266px) clamp(60px, 12vw, 180px);
+  margin-right: calc(var(--gutter) + 40px);
+  margin-block: clamp(80px, 10vw, 140px) clamp(48px, 6vw, 80px);
 }
 
 .conceptSection {
-  --conceptInset: 3.75vw;
-  padding-bottom: clamp(80px, 15vw, 224px);
+  /* distance from the card's left edge to the page edge */
+  --conceptInset: calc(var(--gutter) + 48px);
+  padding-inline: var(--gutter);
+  padding-bottom: clamp(64px, 9vw, 130px);
 }
 
 .conceptCard {
   position: relative;
-  width: 76.8%;
-  margin-left: var(--conceptInset);
-  padding-bottom: 8vw;
+  width: min(100%, 760px);
+  margin-left: 48px;
+  padding-bottom: 80px;
   /* matches ConceptBg.png; the card still grows if the content needs more room */
   aspect-ratio: 2208 / 3732;
   background:
@@ -216,32 +243,32 @@
 
 .conceptLine {
   height: 1px;
-  margin-top: 7.5vw;
+  margin-top: 56px;
   margin-left: calc(-1 * var(--conceptInset));
   width: calc(42% + var(--conceptInset));
   background: var(--offBlack);
 }
 
 .conceptTitle {
-  margin: 4vw 0 0 20%;
+  margin: 36px 0 0 20%;
   font-family: 'Cormorant';
   font-weight: 400;
-  font-size: clamp(56px, 8.5vw, 128px);
+  font-size: clamp(56px, 6vw, 80px);
   line-height: 1;
   font-variant-caps: small-caps;
   color: var(--offBlack);
 }
 
 .conceptText {
-  margin: 40px 8.4% 0 21.6%;
+  margin: 28px 8.4% 0 21.6%;
 }
 
 .conceptButtons {
   display: grid;
   grid-template-columns: repeat(2, auto);
   justify-content: start;
-  gap: 40px 30px;
-  margin: 60px 0 0 11%;
+  gap: 24px;
+  margin: 40px 0 0 11%;
 }
 
 .conceptButtons > :last-child {
@@ -264,27 +291,41 @@
 * --------------------------------------------------
 */
 @media (max-width: 900px) {
+  .title {
+    font-size: 54px;
+  }
   .headerContent {
     width: 80%;
   }
 
+  .founderWrapper {
+  }
+
   .founderWrapper > h2 {
-    font-size: 22px;
+    font-size: 20px;
+    top: 50%;
   }
 
   .founderWrapper > h2 > span {
     font-size: 36px;
   }
 
+  .bodyText {
+    font-size: 16px;
+  }
+
   .storySection {
-    grid-template-columns: 1fr;
-    padding-right: 0;
+    padding-bottom: 60px;
   }
 
   .storyCard {
-    grid-column: 1;
-    margin: 0 4% 0 0;
-    padding-bottom: 80px;
+    width: 100%;
+    aspect-ratio: auto;
+    padding-bottom: 0;
+  }
+
+  .storyText {
+    font-size: 16px;
   }
 
   .storyTitle {
@@ -292,16 +333,18 @@
   }
 
   .storyText {
-    width: 88%;
-    margin-left: 6%;
+    margin-inline: 6%;
   }
 
-  .storyImg {
-    grid-column: 1;
-    grid-row: 2;
-    justify-self: end;
+  /* below the text, hanging out of the card's bottom edge */
+  .storyImgFrame {
+    position: relative;
+    left: auto;
+    top: auto;
     width: 85%;
-    margin: -40px 4% 0 0;
+    height: auto;
+    aspect-ratio: 1602 / 2334;
+    margin: 40px 0 -60px auto;
   }
 
   .headerContentRight {
@@ -310,11 +353,11 @@
   }
 
   .conceptSection {
-    --conceptInset: 4vw;
+    --conceptInset: var(--gutter);
   }
 
   .conceptCard {
-    width: 92%;
+    margin-left: 0;
     padding-bottom: 100px;
   }
 
