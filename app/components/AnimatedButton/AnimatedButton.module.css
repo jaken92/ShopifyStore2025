@@ -1,6 +1,6 @@
 .AnimatedButton {
   text-decoration: none;
-  width: 240px;
+  width: var(--animatedButtonWidth, 240px);
   font-family: 'Cormorant';
   font-style: italic;
   /* color: #363636; */

@@ -262,6 +262,8 @@
 }
 
 .serviceBtnContainer {
+  /* button is max 240px, but always leaves room on both sides of the photo */
+  --animatedButtonWidth: min(240px, 75%);
   position: absolute;
   top: 0;
   left: 0;
@@ -458,6 +460,28 @@
   }
   to {
     transform: translate(-100%);
+  }
+}
+
+/*
+* --------------------------------------------------
+* Tablet
+* --------------------------------------------------
+*/
+@media (min-width: 768px) and (max-width: 1100px) {
+  .serviceCardsLayout {
+    gap: 24px;
+    margin: 0 32px;
+  }
+
+  .serviceLinkContainer {
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+
+  /* higher specificity than the button's own .AnimatedButton rule */
+  .serviceBtnContainer > div {
+    font-size: 16px;
   }
 }
 
