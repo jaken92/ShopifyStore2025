@@ -382,7 +382,7 @@ export default function Homepage() {
               textColor={'white'}
               to="/pages/contact"
             >
-              RECSOURCES
+              RESOURCES
             </AnimatedButton>
           </div>
         </ParallaxSection>

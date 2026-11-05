@@ -460,3 +460,211 @@
     transform: translate(-100%);
   }
 }
+
+/*
+* --------------------------------------------------
+* Mobile
+* --------------------------------------------------
+*/
+@media (max-width: 767px) {
+  /* Hero */
+  .logo {
+    width: 80px;
+    height: 80px;
+    padding-top: 24px;
+  }
+
+  .overlayText h1 {
+    font-size: clamp(34px, 10vw, 44px);
+    margin-top: 16px;
+  }
+
+  .overlayText h2 {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .paragraphContainer {
+    width: 85%;
+  }
+
+  .paragraphContainer p {
+    padding: 0;
+    font-size: 17px;
+    line-height: 1.7;
+    text-transform: none;
+  }
+
+  .buttonContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  /* Intro */
+  .introSection {
+    padding: 64px 20px;
+    gap: 32px;
+  }
+
+  .introSection h3 {
+    max-width: 90%;
+    font-size: 26px;
+    letter-spacing: 2px;
+  }
+
+  .introSection > p {
+    max-width: 100%;
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  /* keywords on one centered row, with short lines around them */
+  .keywordsContainer {
+    font-size: 14px;
+    letter-spacing: 3px;
+  }
+
+  .keywordsContainer > p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .keywordsContainer > p span {
+    display: flex;
+    align-items: center;
+  }
+
+  .keywordsContainer > p span::before,
+  .keywordsContainer > p span:last-child::after {
+    width: 20px;
+    margin: 0 8px;
+  }
+
+  /* Image trio → big image on top, two side by side below */
+  .imagesContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    margin-bottom: 64px;
+  }
+
+  .imageOne,
+  .imageTwo,
+  .imageThree {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    display: block;
+  }
+
+  .imageTwo {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+  }
+
+  /* Services → stacked cards */
+  .headerLayout {
+    margin-bottom: 32px;
+  }
+
+  .headerContent {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .serviceCardsLayout {
+    flex-direction: column;
+    gap: 48px;
+    margin: 0 20px;
+  }
+
+  .serviceCardWithTxt {
+    width: 100%;
+  }
+
+  .serviceLinkContainer {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .serviceTextContainer {
+    margin: 24px 0 0;
+    min-height: 0;
+    gap: 16px;
+  }
+
+  /* Parallax */
+  .parallaxSection {
+    margin-top: 64px;
+  }
+
+  .parallaxContent {
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .parallaxContent h3 {
+    font-size: 30px;
+  }
+
+  /* Reviews */
+  .reviewSection {
+    margin-top: 64px;
+  }
+
+  .reviewHeaderWrapper {
+    justify-content: flex-start;
+    padding: 0 20px;
+  }
+
+  .reviewsTitle {
+    font-size: 28px;
+    text-align: left;
+    text-wrap: balance;
+  }
+
+  .reviewCarousell {
+    margin: 40px auto;
+  }
+
+  .reviewCard {
+    flex: 0 0 260px;
+  }
+
+  /* Photo grid → 2x2 squares */
+  .photos {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin: 64px 20px;
+  }
+
+  /* the imgs also carry the .photos class, so reset the grid's margin on them */
+  .photos img {
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+  }
+
+  /* Contact info */
+  .contactInfo {
+    margin: 64px 20px;
+    gap: 16px;
+  }
+
+  .contactInfo p {
+    font-size: 18px;
+  }
+}

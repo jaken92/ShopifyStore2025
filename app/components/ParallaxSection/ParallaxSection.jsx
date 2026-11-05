@@ -10,8 +10,16 @@ export function ParallaxSection({
   const [translateY, setTranslateY] = useState(0);
 
   useEffect(() => {
+    // Scroll effects tend to jitter on phones, so show a still image there
+    const isPhone = window.matchMedia('(max-width: 767px)');
+
     const handleScroll = () => {
       if (!sectionRef.current) return;
+
+      if (isPhone.matches) {
+        setTranslateY(0);
+        return;
+      }
 
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
